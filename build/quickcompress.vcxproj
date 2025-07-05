@@ -334,6 +334,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\aszki\vault\vault\src\main.cpp" />
     <ClCompile Include="C:\Users\aszki\vault\vault\src\core\bit_stream.cpp" />
+    <ClCompile Include="C:\Users\aszki\vault\vault\src\core\frequency_analyzer.cpp" />
+    <ClCompile Include="C:\Users\aszki\vault\vault\src\core\huffman_tree.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
