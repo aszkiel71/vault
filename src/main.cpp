@@ -2,6 +2,7 @@
 #include <string>
 
 #include "core/bit_stream.hpp"    // Adding include for BitStream
+#include "core/encoder.hpp"       // Adding include for Encoder
 #include "core/huffman_tree.hpp"  // Adding include for HuffmanTree
 
 struct Arguments {
@@ -80,11 +81,12 @@ int main(int argc, char* argv[]) {
   BitStream bs;
 
   // Test write_bit
+  /*
   bs.write_bit(true);
   bs.write_bit(false);
   bs.write_bit(true);
   bs.write_bit(true);
-
+  */
   // Test write_bits
   bs.write_bits(0xA5, 8);  // 10100101
 
@@ -161,18 +163,28 @@ int main(int argc, char* argv[]) {
   if (args.inputFile.empty()) {
     std::cout << "\nWarning: No input file specified!\n";
   } else {
-    if (args.isCompression) {
-      std::cout << "\nTODO: Compress file '" << args.inputFile << "'";
-      if (!args.outputFile.empty()) {
-        std::cout << " -> '" << args.outputFile << "'";
+    Encoder encoder;
+    try {
+      if (args.isCompression) {
+        std::cout << "\nCompressing file '" << args.inputFile << "'";
+        if (!args.outputFile.empty()) {
+          std::cout << " -> '" << args.outputFile << "'";
+        }
+        std::cout << "\n";
+        encoder.compress(args.inputFile, args.outputFile);
+        std::cout << "Compression completed successfully!\n";
+      } else {
+        std::cout << "\nDecompressing file '" << args.inputFile << "'";
+        if (!args.outputFile.empty()) {
+          std::cout << " -> '" << args.outputFile << "'";
+        }
+        std::cout << "\n";
+        encoder.decompress(args.inputFile, args.outputFile);
+        std::cout << "Decompression completed successfully!\n";
       }
-      std::cout << "\n";
-    } else {
-      std::cout << "\nTODO: Decompress file '" << args.inputFile << "'";
-      if (!args.outputFile.empty()) {
-        std::cout << " -> '" << args.outputFile << "'";
-      }
-      std::cout << "\n";
+    } catch (const std::exception& e) {
+      std::cerr << "Error: " << e.what() << "\n";
+      return 1;
     }
   }
 

@@ -63,6 +63,13 @@ std::vector<uint8_t> BitStream::get_buffer() const {
   return std::vector<uint8_t>(buffer_.begin(), buffer_.begin() + byte_count);
 }
 
+void BitStream::load_from_buffer(const std::vector<uint8_t>& data) {
+  clear();
+  buffer_ = data;
+  bit_position_ = data.size() * 8;  // Set to the end for writing
+  read_position_ = 0;               // Reset read position to the beginning
+}
+
 void BitStream::clear() {
   buffer_.clear();
   bit_position_ = 0;

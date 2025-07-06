@@ -6,6 +6,9 @@
 #include <memory>
 #include <string>
 
+// Forward declaration
+class BitStream;
+
 class HuffmanTree {
  private:
   struct Node {
@@ -27,6 +30,9 @@ class HuffmanTree {
 
   void build_tree(const std::map<uint8_t, uint64_t>& frequencies);
   std::map<uint8_t, std::string> generate_codes() const;
+
+  // Decode a single byte from the bit stream using the Huffman tree
+  uint8_t decode_byte(BitStream& bit_stream) const;
 };
 
 #endif

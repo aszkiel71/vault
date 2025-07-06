@@ -23,6 +23,7 @@ class BitStream {
 
   // management of the buffer
   std::vector<uint8_t> get_buffer() const;
+  void load_from_buffer(const std::vector<uint8_t>& data);
   void clear();
 
   // information about the stream

@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include <vector>
 
+#include "core/bit_stream.hpp"
+
 void HuffmanTree::build_tree(const std::map<uint8_t, uint64_t>& frequencies) {
   if (frequencies.empty()) {
     throw std::invalid_argument("Frequencies map cannot be empty");
@@ -96,4 +98,35 @@ std::map<uint8_t, std::string> HuffmanTree::generate_codes() const {
 
   generate_codes_helper(root.get(), "");
   return codes;
+}
+
+uint8_t HuffmanTree::decode_byte(BitStream& bit_stream) const {
+  if (!root) {
+    throw std::runtime_error("HuffmanTree: Tree is empty");
+  }
+
+  const Node* current = root.get();
+
+  // Handle single character case (dummy root with only left child)
+  if (current->left && !current->right && current->left->is_leaf) {
+    // Read one bit (should be 0 for single character)
+    bit_stream.read_bit();
+    return current->left->byte;
+  }
+
+  // Traverse the tree following the bits
+  while (!current->is_leaf) {
+    bool bit = bit_stream.read_bit();
+    if (bit) {
+      current = current->right.get();
+    } else {
+      current = current->left.get();
+    }
+
+    if (!current) {
+      throw std::runtime_error("HuffmanTree: Invalid code sequence");
+    }
+  }
+
+  return current->byte;
 }
