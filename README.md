@@ -290,12 +290,11 @@ Contributions are welcome! Areas for improvement:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**aszkiel71** - [GitHub Profile](https://github.com/aszkiel71)
-
+**aszkiel71**
 ---
 
 *A clean, educational implementation of Huffman coding in modern C++17*
