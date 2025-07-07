@@ -13,7 +13,6 @@ std::map<uint8_t, uint64_t> FrequencyAnalyzer::analyze_file(
     throw std::runtime_error("Could not open file: " + file_name);
   }
 
-  uint8_t byte;
   char buffer[4096];
   while (file.read(buffer, sizeof(buffer)) || file.gcount() > 0) {
     for (int i = 0; i < file.gcount(); ++i) {
