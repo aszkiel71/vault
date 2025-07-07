@@ -5,6 +5,7 @@
 ![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 **Clean C++17 implementation of Huffman coding algorithm with command-line interface and real-time progress tracking.**
+**Total work-time: 30h**
 
 ## 🚀 Features
 
