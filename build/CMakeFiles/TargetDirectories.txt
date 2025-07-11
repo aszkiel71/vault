@@ -1,4 +1,0 @@
-C:/Users/aszki/vault/vault/build/CMakeFiles/quickcompress.dir
-C:/Users/aszki/vault/vault/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/aszki/vault/vault/build/CMakeFiles/ZERO_CHECK.dir
-C:/Users/aszki/vault/vault/build/external/indicators/CMakeFiles/ALL_BUILD.dir

@@ -1,5 +1,0 @@
-C:\Users\aszki\vault\vault\src\main.cpp;C:\Users\aszki\vault\vault\build\quickcompress.dir\Debug\main.obj
-C:\Users\aszki\vault\vault\src\core\bit_stream.cpp;C:\Users\aszki\vault\vault\build\quickcompress.dir\Debug\bit_stream.obj
-C:\Users\aszki\vault\vault\src\core\frequency_analyzer.cpp;C:\Users\aszki\vault\vault\build\quickcompress.dir\Debug\frequency_analyzer.obj
-C:\Users\aszki\vault\vault\src\core\huffman_tree.cpp;C:\Users\aszki\vault\vault\build\quickcompress.dir\Debug\huffman_tree.obj
-C:\Users\aszki\vault\vault\src\core\encoder.cpp;C:\Users\aszki\vault\vault\build\quickcompress.dir\Debug\encoder.obj
